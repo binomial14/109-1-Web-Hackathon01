@@ -5,7 +5,51 @@ var button = document.getElementById("cal-button")
 input.value = ''
 color.value = '#b0b0b0'
 
+var current = 0;
 
+function change_color(id){
+	console.log("click!");
+	if(current != 0){
+		var pp = document.getElementById(current);
+		pp.style.backgroundColor = 'white';
+		pp.style.color = 'black';
+	}
+	var dd = document.getElementById(id);
+	//dd.innerHTML = '#000000';
+	dd.style.backgroundColor = '#000000';
+	dd.style.color = 'white';
+	current = id;
+}
+
+input.addEventListener("keyup", event => {
+  // console.log(event.keyCode)
+  if (event.keyCode === 13 && event.target.value !== "") {
+
+    var pp = document.getElementById(current);
+	console.log(event.target.value)
+	//pp.innerHTML += "<br>";
+	//pp.innerHTML += event.target.value;
+	//console.log(color.value);
+	//pp.style.color = color.value;
+	var para = document.createElement("div");
+	var node = document.createTextNode(event.target.value);
+	para.appendChild(node);
+	para.style.color = color.value;
+	pp.appendChild(para);
+    event.target.value = "";
+  }
+});
+
+function add_note(){
+	var pp = document.getElementById(current);
+	console.log(input.value)
+	var para = document.createElement("div");
+	var node = document.createTextNode(input.value);
+	para.appendChild(node);
+	para.style.color = color.value;
+	pp.appendChild(para);
+	input.value = "";
+}
 
 
 
