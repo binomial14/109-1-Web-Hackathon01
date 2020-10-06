@@ -9,18 +9,27 @@ var current = 0;
 
 function change_color(id){
 	console.log("click!");
+	console.log(document.body.classList[0])
 	if(current != 0){
 		var pp = document.getElementById(current);
 		//pp.style.backgroundColor = 'white';
 		//pp.style.color = 'black';
 		pp.style="";
+		
 	}
 	var dd = document.getElementById(id);
 	//dd.innerHTML = '#000000';
 	//dd.style.backgroundColor = '#000000';
 	//dd.style.color = 'white';
-	dd.style.backgroundColor = '#000000';
-	dd.style.color = 'white';
+	var theme_name = document.body.classList[0];
+	element = document.querySelector('.'+theme_name)
+	style = getComputedStyle(element)
+	console.log(style.getPropertyValue("--text"))
+	//var bb = document.getElementsByTagName("BODY");
+	//style = window.getComputedStyle(bb);
+	//console.log(style.getPropertyValue('color'));
+	dd.style.backgroundColor = style.getPropertyValue("--box");
+	dd.style.color = style.getPropertyValue("--text");
 	current = id;
 }
 
@@ -53,9 +62,6 @@ function add_note(){
 	pp.appendChild(para);
 	input.value = "";
 }
-
-
-
 
 
 
