@@ -11,11 +11,14 @@ function change_color(id){
 	console.log("click!");
 	if(current != 0){
 		var pp = document.getElementById(current);
-		pp.style.backgroundColor = 'white';
-		pp.style.color = 'black';
+		//pp.style.backgroundColor = 'white';
+		//pp.style.color = 'black';
+		pp.style="";
 	}
 	var dd = document.getElementById(id);
 	//dd.innerHTML = '#000000';
+	//dd.style.backgroundColor = '#000000';
+	//dd.style.color = 'white';
 	dd.style.backgroundColor = '#000000';
 	dd.style.color = 'white';
 	current = id;
